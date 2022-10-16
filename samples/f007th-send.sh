@@ -1,4 +1,8 @@
 #! /bin/sh
+#!! Does not work with Debian >= 11 (bullseye) !!
+#!! Use: f007th-send.service !!
+exit
+
 ### BEGIN INIT INFO
 # Provides: f007th-send
 # Required-Start: $all
