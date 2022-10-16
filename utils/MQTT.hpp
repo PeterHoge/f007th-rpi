@@ -145,7 +145,9 @@ private:
     if (rc != MOSQ_ERR_SUCCESS ) {
       Log->error("ERROR %d on connecting to MQTT broker: %s", rc, mosqpp::strerror(rc));
     } else {
-      if ( (options&(VERBOSITY_INFO|VERBOSITY_DEBUG))!=0 ) Log->log("Successfully connected to MQTT broker %s:%d.", host, port);
+      //PH: Better reporting
+      //if ( (options&(VERBOSITY_INFO|VERBOSITY_DEBUG))!=0 ) Log->log("Successfully connected to MQTT broker %s:%d.", host, port);
+      Log->info("Successfully connected to MQTT broker %s:%d.", host, port);
       connected = true;
     }
   }
