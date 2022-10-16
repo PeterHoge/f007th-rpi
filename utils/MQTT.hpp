@@ -83,11 +83,15 @@ public:
       Log->error("ERROR MOSQ_ERR_INVAL on connecting to MQTT broker: %s", mosqpp::strerror(rc));
       return false;
     case MOSQ_ERR_ERRNO:
-      char buffer[1024];
+      char buffer[256];
       const char* error_message;
-      error_message = strerror_r(errno, buffer, 1024);
-      Log->error("ERROR on connecting to MQTT broker: %s", rc, error_message);
-      return false;
+      error_message = strerror_r(errno, buffer, 256);
+      Log->error("ERROR %d on connecting to MQTT broker: %s", rc, error_message);
+      // PH: No abort, wait for the MQTT broker is running
+      //return false;
+      printf("Wait for MQTT Broker\n");
+      sleep(5);
+      break;
     default:
       Log->error("ERROR %d on connecting to MQTT broker: %s", rc, mosqpp::strerror(rc));
       return false;
