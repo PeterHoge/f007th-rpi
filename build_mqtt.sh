@@ -4,6 +4,8 @@ RUNDIR=`pwd`
 BUILD_HOME=`dirname $0`
 BUILD_HOME=`cd $BUILD_HOME; pwd`
 
+if [ ! -d ${BUILD_HOME}/bin ]; then mkdir -p ${BUILD_HOME}/bin; fi
+
 cd ${BUILD_HOME}/f007th-ts-all
 make f007th-send
 status=$?
