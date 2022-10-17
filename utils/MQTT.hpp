@@ -87,11 +87,13 @@ public:
       const char* error_message;
       error_message = strerror_r(errno, buffer, 256);
       Log->error("ERROR %d on connecting to MQTT broker: %s", rc, error_message);
-      // PH: No abort, wait for the MQTT broker is running
-      //return false;
-      printf("Wait for MQTT Broker\n");
+      // PH: Wait some seconds for the MQTT-Broker to start
       sleep(5);
-      break;
+      // PH: Variante 1: Abort, systemctl starts the program again 
+      return false;
+      // PH: Variante2: No abort, program connects to MQTT broker later
+      //printf("Wait for MQTT Broker\n");
+      //break;
     default:
       Log->error("ERROR %d on connecting to MQTT broker: %s", rc, mosqpp::strerror(rc));
       return false;
