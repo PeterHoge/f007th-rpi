@@ -1,0 +1,9 @@
+folder for:
+build_mqtt.sh - with MQTT + gpio-ts
+
+new build.sh for all configurations (with/without MQTT and gpio-ts)
+
+build_ph1.sh (MQTT+gpio-ts)
+build_ph2.sh (MQTT+ without gpio-ts)
+
+

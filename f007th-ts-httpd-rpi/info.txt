@@ -1,0 +1,6 @@
+folder f007th-ts-httpd-rpi for
+
+build_old.sh
+
+f007th-send with gpio-ts and without MQTT
+

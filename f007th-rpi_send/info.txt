@@ -1,0 +1,8 @@
+folder for:
+
+build_old.sh
+
+f007th-rpi_send (without MQTT + without gpio-ts)
+
+
+

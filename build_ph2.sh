@@ -3,8 +3,8 @@
 # -----------------------------------------------------------------------------
 # Default build configuration
 
-use_gpio_ts=1
-include_MQTT=0
+use_gpio_ts=0
+include_MQTT=1
 include_HTTPD=1
 include_DS18B20=0
 executable=''

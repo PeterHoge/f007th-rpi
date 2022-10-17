@@ -1,0 +1,4 @@
+folder for
+
+build ODROID C2
+
