@@ -14,8 +14,8 @@ Type=simple
 Restart=always
 RestartSec=5s
 TimeoutSec=1min
-User=pi
-ExecStart=/home/pi/froggit/f007th-rpi/bin/f007th-send -c /home/pi/froggit/f007th-rpi/bin/f007th-send.cfg
+User=peter
+ExecStart=/home/peter/froggit/f007th-rpi/bin/f007th-send -c /home/peter/froggit/f007th-rpi/bin/f007th-send.cfg
 
 [Install]
 WantedBy=multi-user.target

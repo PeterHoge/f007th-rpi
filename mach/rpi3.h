@@ -39,7 +39,9 @@ gpio readall
 */
 
 #ifndef TEST_DECODING
-#define MAX_GPIO 53
+// PH 9.7.2025
+//#define MAX_GPIO 53
+#define MAX_GPIO 600
 #define DEFAULT_PIN 27
 #endif
 

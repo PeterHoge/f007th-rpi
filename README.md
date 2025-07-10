@@ -40,7 +40,7 @@ This project currently supports and tested with following sensors:
 
 ### [Supported platforms](https://github.com/alex-konshin/f007th-rpi/wiki/Home#supported-platforms)
 Following platforms are supported and tested:
-- Raspberry Pi 3, 4
+- Raspberry Pi 3, 4, 5
 - [ODROID C2](http://www.hardkernel.com/main/products/prdt_info.php?g_code=G145457216438&tab_idx=1)
 - [MinnowBoard MAX/Turbot](https://www.minnowboard.org/) (tested with [MinnowBoard Turbot QUAD Core Board](https://store.netgate.com/Turbot4.aspx))
 - [Banana Pi M3](https://bananapi.gitbooks.io/bpi-m3/content/en/) (limited support)
@@ -56,4 +56,36 @@ When you get your setup working you can change configuration to enable other fea
 ### [Running the utility](https://github.com/alex-konshin/f007th-rpi/wiki/Running-the-utility)
 * [Command line arguments](https://github.com/alex-konshin/f007th-rpi/wiki/Command-line-arguments)
 * [Configuration file](https://github.com/alex-konshin/f007th-rpi/wiki/Configuration-file)
+
+### My own build with kernel driver gpio.ts and MQTT:
+* in Home from peter (or pi):
+* mkdir froggit
+* cd froggit
+* git clone https://github.com/PeterHoge/f007th-rpi.git
+*
+* cd f007th-rpi
+* mkdir bin
+* ./build_mqtt.sh
+
+#### Create Log directory
+* sudo mkdir /var/log/f007th-send
+* sudo chown peter /var/log/f007th-send
+* sudo chmod 755 /var/log/f007th-send
+
+#### Copy Config Files
+* cd config_my_raspiX
+* cp -p *.cfg ../bin
+
+#### Start at boot
+* cd config_my_raspiX
+* sudo cp -p f007th-send.service /etc/systemd/system
+* sudo chmod 755 /etc/systemd/system/f007th-send.service
+* sudo systemctl daemon-reload
+* sudo systemctl enable f007th-send
+
+#### Start/Stop manuell
+* sudo systemctl start f007th-send
+* sudo systemctl stop  f007th-send
+* sudo systemctl status f007th-send
+* sudo systemctl is-active f007th-send
 
